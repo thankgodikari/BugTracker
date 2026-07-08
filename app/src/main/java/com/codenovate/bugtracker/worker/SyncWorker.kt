@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.codenovate.bugtracker.repository.IssueRepository
-
+import android.util.Log
 
 class SyncWorker(
     context: Context,
@@ -22,6 +22,12 @@ class SyncWorker(
             Result.success()
 
         } catch (exception: Exception) {
+
+            Log.e(
+                "SyncWorker",
+                "Synchronization failed",
+                exception
+            )
 
             Result.retry()
 
