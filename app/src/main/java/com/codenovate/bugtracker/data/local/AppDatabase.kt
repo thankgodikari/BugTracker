@@ -1,8 +1,18 @@
 package com.codenovate.bugtracker.data.local
 
-class AppDatabase {
+import androidx.room.Database
+import androidx.room.RoomDatabase
 
-    fun issueDao(): IssueDao {
-        throw NotImplementedError("Room will provide this later.")
-    }
+
+@Database(
+    entities = [IssueEntity::class],
+    version = 1,
+    exportSchema = false
+)
+abstract class AppDatabase : RoomDatabase() {
+
+
+    abstract fun issueDao(): IssueDao
+
+
 }
